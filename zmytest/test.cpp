@@ -33,6 +33,8 @@ void testHeap(){
 
     lasd::Heap<int> linearHeap(vettore);
     std::cout<<"STAMPA"<<std::endl;
+    std::cout<<"STAMPA"<<std::endl;
+
     linearHeap.PrintArray();
 
     std::cout<<"\n\n";
