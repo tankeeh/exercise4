@@ -9,6 +9,7 @@
 #include "../binarytree/vec/binarytreevec.hpp"
 #include "../binarytree/binarytree.hpp"
 #include "../heap/heap.hpp"
+#include "../priorityqueue/priorityqueue.hpp"
 #include "RandomGens/RandomValues.hpp"
 #include "./TreeUtils/TreeUtilsFunctions.hpp"
 #include "./TreeUtils/treeNavFunctions/NavigateFunctions.hpp"
@@ -25,14 +26,25 @@ void lasd::Heap<Data>::PrintArray(){
 /** MY TESTS **/
 void testHeap(){
 
-    lasd::List<int> vettore;
+    lasd::PriorityQueue<int> linearPQ;
+    /*
+    lasd::List<int> lista;
     for (int i=0; i<30; i++){
-        vettore.InsertAtBack(12 - i);
+        lista.InsertAtBack(12 - i);
+    }*/
+    int n;
+
+    std::cout<<"inserire la grandezza del vettore : ";
+    std::cin>>n;
+    lasd::Vector<int> lista(n);
+    int item;
+    for(int i=0;i<n;i++){
+        std::cin>>item;
+        lista[i] = item;
     }
 
 
-    lasd::Heap<int> linearHeap(vettore);
-    std::cout<<"STAMPA"<<std::endl;
+    lasd::Heap<int> linearHeap(lista);
     std::cout<<"STAMPA"<<std::endl;
 
     linearHeap.PrintArray();

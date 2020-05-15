@@ -28,37 +28,39 @@ protected:
 public:
 
   // Default constructor
-  // PriorityQueue() specifiers;
+  PriorityQueue() = default;
 
   // Specific constructor
-  // PriorityQueue(argument) specifiers; // Construct a priority queue from a LinearContainer
+  PriorityQueue(const LinearContainer<Data>& container); // Construct a priority queue from a LinearContainer
 
   // Copy constructor
-  PriorityQueue(argument) specifiers;
+  PriorityQueue(const PriorityQueue<Data>&);
 
   // Move constructor
-  // PriorityQueue(argument) specifiers;
+  PriorityQueue(PriorityQueue<Data>&&);
 
   /* ************************************************************************ */
 
   // Destructor
-  // ~PriorityQueue() specifiers;
+  ~PriorityQueue() = default;
 
   /* ************************************************************************ */
 
   // Copy assignment
-  // type operator=(argument) specifiers;
+  PriorityQueue& operator=(const PriorityQueue&) noexcept ;
 
   // Move assignment
-  // type operator=(argument) specifiers;
+  PriorityQueue& operator=(PriorityQueue&&) noexcept ;
 
-  /* ************************************************************************ */
+
+    /* ************************************************************************ */
 
   // Comparison operators
-  // type operator==(argument) specifiers;
-  // type operator!=(argument) specifiers;
+  bool operator==(const PriorityQueue&) const noexcept ;
+  bool operator!=(const PriorityQueue&) const noexcept ;
 
-  /* ************************************************************************ */
+
+    /* ************************************************************************ */
 
   // Specific member functions
 
@@ -66,7 +68,7 @@ public:
 
   // using Heap<Data>::Root;
 
-  // type Tip() specifier; // (might throw std::length_error)
+  Data Tip() const; // (might throw std::length_error)
   // type RemoveTip() specifier; // (might throw std::length_error)
   // type TipNRemove() specifier; // (might throw std::length_error)
   // type Insert(argument) specifier; // Copy of the value

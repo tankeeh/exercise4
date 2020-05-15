@@ -2,7 +2,7 @@
 #include "heap.hpp"
 
 template <typename Data>
-void Heap<Data>::BuildTree(Heap<Data>& heap,LinearContainer<Data>& container){
+void Heap<Data>::BuildTree(Heap<Data>& heap,const LinearContainer<Data>& container){
     heap.size = container.Size();
     heap.tree.Resize(this->size);
     int i = 0;
@@ -15,7 +15,7 @@ void Heap<Data>::BuildTree(Heap<Data>& heap,LinearContainer<Data>& container){
 
 
 template <typename Data>
-Heap<Data>:: Heap(LinearContainer<Data>& container){
+Heap<Data>:: Heap(const LinearContainer<Data>& container){
     BuildTree(*this,container);
     this->BuildHeap();
 }
@@ -62,8 +62,8 @@ void Heap<Data>::Heapify(Heap& heap,int i,int heapsize){
     int temp;
     int sx = 2*i + 1;
     int dx = 2*i + 2;
-    if(sx < heapsize && heap.tree[sx]->Element() < heap.tree[minimo]->Element()) minimo=sx;
-    if(dx < heapsize && heap.tree[dx]->Element() < heap.tree[minimo]->Element()) minimo=dx;
+    if(sx < heapsize && heap.tree[sx]->Element() <= heap.tree[minimo]->Element()) minimo=sx;
+    if(dx < heapsize && heap.tree[dx]->Element() <= heap.tree[minimo]->Element()) minimo=dx;
 
     if(minimo != i){
         std::swap(heap.tree[i],heap.tree[minimo]);
@@ -89,7 +89,6 @@ void Heap<Data>::Sort(){
         this->tree[j]->setIndex(this->tree[0]->getIndex());
         this->tree[0]->setIndex(temp);
 
-
         Heapify(*this,0,j);
     }
 
@@ -103,8 +102,8 @@ void Heap<Data>::Sort(){
 }
 
 template<typename Data>
-void Heap<Data>::MapPreOrder(MapFunctor, void *par) {
-
+void Heap<Data>::MapPreOrder(MapFunctor fun, void *par) {
+this->MapBreadth(fun,par);
 }
 
 template<typename Data>
