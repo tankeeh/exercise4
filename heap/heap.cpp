@@ -103,22 +103,22 @@ void Heap<Data>::Sort(){
 
 template<typename Data>
 void Heap<Data>::MapPreOrder(MapFunctor fun, void *par) {
-this->MapBreadth(fun,par);
+BinaryTreeVec<Data>::MapBreadth(fun,par);
 }
 
 template<typename Data>
-void Heap<Data>::MapPostOrder(MapFunctor, void *par) {
-
+void Heap<Data>::MapPostOrder(MapFunctor fun, void *par) {
+    for(int i=this->size-1;i>=0;i--) fun(this->tree[i],par);
 }
 
 template<typename Data>
-void Heap<Data>::FoldPreOrder(FoldFunctor functor, const void *par, void *acc) const {
-
+void Heap<Data>::FoldPreOrder(FoldFunctor fun, const void *par, void *acc) const {
+    BinaryTreeVec<Data>::FoldBreadth(fun,par,acc);
 }
 
 template<typename Data>
-void Heap<Data>::FoldPostOrder(FoldFunctor functor, const void *par, void *acc) const {
-
+void Heap<Data>::FoldPostOrder(FoldFunctor fun, const void *par, void *acc) const {
+    for(int i=this->size-1;i>=0;i--) fun(this->tree[i],par,acc);
 }
 
 

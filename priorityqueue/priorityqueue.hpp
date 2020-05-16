@@ -64,18 +64,18 @@ public:
 
   // Specific member functions
 
-  // using Heap<Data>::???;
+  using Heap<Data>::Sort;
 
   // using Heap<Data>::Root;
 
   Data Tip() const; // (might throw std::length_error)
-  // type RemoveTip() specifier; // (might throw std::length_error)
-  // type TipNRemove() specifier; // (might throw std::length_error)
-  // type Insert(argument) specifier; // Copy of the value
-  // type Insert(argument) specifier; // Move of the value
+  void RemoveTip() ; // (might throw std::length_error)
+  const Data& TipNRemove(); // (might throw std::length_error)
+  void Insert(const Data&) noexcept ; // Copy of the value
+  void Insert(Data&&) noexcept ; // Move of the value
 
-  // type ChangePriority(arguments) specifier; // Change priority of a Node (Copy of the value)
-  // type ChangePriority(arguments) specifier; // Change priority of a Node (Move of the value)
+  void ChangePriority(const Data&) noexcept; // Change priority of a Node (Copy of the value)
+  void ChangePriority(Data&&) noexcept; // Change priority of a Node (Move of the value)
 
 };
 

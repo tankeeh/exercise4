@@ -26,8 +26,7 @@ void lasd::Heap<Data>::PrintArray(){
 /** MY TESTS **/
 void testHeap(){
 
-    lasd::PriorityQueue<int> linearPQ;
-    /*
+     /*
     lasd::List<int> lista;
     for (int i=0; i<30; i++){
         lista.InsertAtBack(12 - i);
@@ -36,15 +35,15 @@ void testHeap(){
 
     std::cout<<"inserire la grandezza del vettore : ";
     std::cin>>n;
-    lasd::Vector<int> lista(n);
+    lasd::Vector<int> vettore(n);
     int item;
     for(int i=0;i<n;i++){
         std::cin>>item;
-        lista[i] = item;
+        vettore[i] = item;
     }
 
 
-    lasd::Heap<int> linearHeap(lista);
+    lasd::Heap<int> linearHeap(vettore);
     std::cout<<"STAMPA"<<std::endl;
 
     linearHeap.PrintArray();
