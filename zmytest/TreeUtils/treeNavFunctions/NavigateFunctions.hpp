@@ -5,6 +5,7 @@
 #ifndef EXERCISE2_NAVIGATEFUNCTIONS_HPP
 #define EXERCISE2_NAVIGATEFUNCTIONS_HPP
 
+#include "../../../binarytree/lnk/binarytreelnk.hpp"
 
 template <typename Data>
 void intTreeLnkNavigation(lasd::BinaryTreeLnk<Data>* tree);

@@ -4,7 +4,7 @@
 template <typename Data>
 void Heap<Data>::BuildTree(Heap<Data>& heap,const LinearContainer<Data>& container){
     heap.size = container.Size();
-    heap.tree.Resize(this->size);
+    heap.tree.Resize(heap.size);
     int i = 0;
     while(i < heap.size){
         heap.tree[i] = new typename BinaryTreeVec<Data>::NodeVec(container[i],&heap.tree);
@@ -103,22 +103,24 @@ void Heap<Data>::Sort(){
 
 template<typename Data>
 void Heap<Data>::MapPreOrder(MapFunctor fun, void *par) {
-BinaryTreeVec<Data>::MapBreadth(fun,par);
+this->MapBreadth(fun,par);
+this->BuildHeap();
 }
 
 template<typename Data>
 void Heap<Data>::MapPostOrder(MapFunctor fun, void *par) {
-    for(int i=this->size-1;i>=0;i--) fun(this->tree[i],par);
+    for(int i=this->size-1;i>=0;i--) fun(this->tree[i]->Element(),par);
+    this->BuildHeap();
 }
 
 template<typename Data>
 void Heap<Data>::FoldPreOrder(FoldFunctor fun, const void *par, void *acc) const {
-    BinaryTreeVec<Data>::FoldBreadth(fun,par,acc);
+    this->FoldBreadth(fun,par,acc);
 }
 
 template<typename Data>
 void Heap<Data>::FoldPostOrder(FoldFunctor fun, const void *par, void *acc) const {
-    for(int i=this->size-1;i>=0;i--) fun(this->tree[i],par,acc);
+    for(int i=this->size-1;i>=0;i--) fun(this->tree[i]->Element(),par,acc);
 }
 
 

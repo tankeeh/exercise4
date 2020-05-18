@@ -3,7 +3,6 @@
 //
 
 
-#include <algorithm>
 /**FUNS ESERCIZIO 1/2 **/
 
 template <typename Data>
@@ -53,7 +52,6 @@ void DuplicateInt(Data& elem, void*){
 
 template <typename Data>
 void InitialConcatString(Data& elem, void* par){
-    std::cout<<(*(std::string*)par)<<"prova   ";
 elem = (*(std::string*)par) + elem;
 }
 
@@ -81,6 +79,19 @@ void SumFloatBiggerThan(const Data & dat, const void* par, void *acc) {
     if (dat > *(Data*)par){
         *(Data*)acc += dat;
     }
+}
+
+
+/**FUNS ESERCIZIO 4 **/
+
+template <typename Data>
+void MapFunIntEx4(Data & dat,void* par) {
+    dat *= (pow(-1,dat));
+}
+
+template <typename Data>
+void NegatifyData(Data & dat,void* par) {
+    *(Data*)dat = *(Data*)dat*(-1);
 }
 
 

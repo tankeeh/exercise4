@@ -1,29 +1,29 @@
 
 
 #include <iostream>
-#include "../stack/vec/stackvec.hpp"
-#include "../queue/vec/queuevec.hpp"
-#include "../stack/lst/stacklst.hpp"
-#include "../queue/lst/queuelst.hpp"
-#include "../binarytree/lnk/binarytreelnk.hpp"
-#include "../binarytree/vec/binarytreevec.hpp"
-#include "../binarytree/binarytree.hpp"
+//#include "../stack/vec/stackvec.hpp"
+//#include "../queue/vec/queuevec.hpp"
+//#include "../stack/lst/stacklst.hpp"
+//#include "../queue/lst/queuelst.hpp"
 #include "../heap/heap.hpp"
 #include "../priorityqueue/priorityqueue.hpp"
 #include "RandomGens/RandomValues.hpp"
 #include "./TreeUtils/TreeUtilsFunctions.hpp"
-#include "./TreeUtils/treeNavFunctions/NavigateFunctions.hpp"
+//#include "./TreeUtils/treeNavFunctions/NavigateFunctions.hpp"
 
 
 template <typename Data>
 void lasd::Heap<Data>::PrintArray(){
-    for (int i =0; i<this->tree.Size(); i++)
+    for (int i =0; i<this->size; i++)
         std::cout<<this->tree[i]->Element()<<" "<< this->tree[i]->getIndex()<<std::endl;
 }
 
 
 
 /** MY TESTS **/
+
+
+
 void testHeap(){
 
      /*
@@ -31,15 +31,12 @@ void testHeap(){
     for (int i=0; i<30; i++){
         lista.InsertAtBack(12 - i);
     }*/
-    int n;
 
-    std::cout<<"inserire la grandezza del vettore : ";
-    std::cin>>n;
-    lasd::Vector<int> vettore(n);
-    int item;
-    for(int i=0;i<n;i++){
-        std::cin>>item;
-        vettore[i] = item;
+
+
+    lasd::Vector<int> vettore(7);
+    for(int i=0;i<7;i++){
+        vettore[i] = 12 -i;
     }
 
 
@@ -55,7 +52,60 @@ void testHeap(){
 
 }
 
-void TestPriorityQueue(){
+void testPriorityQueue(){
+
+    lasd::Vector<int> vettore(7);
+    for(int i=0;i<7;i++){
+        vettore[i] = 12 -i;
+    }
+
+
+    lasd::PriorityQueue<int> linearPQ(vettore);
+    std::cout<<"STAMPA"<<std::endl;
+
+    linearPQ.PrintArray();
+    std::cout<<"\n\n";
+
+    //std::cout<<"POST CHANGE PRIORITY < : \n\n";
+    //linearPQ.ChangePriority(linearPQ.Root().RightChild(),2);
+    //linearPQ.PrintArray();
+
+    std::cout<<"POST CHANGE PRIORITY > : \n\n";
+    linearPQ.ChangePriority(linearPQ.Root().RightChild(),1500);
+    linearPQ.PrintArray();
+
+
+    //linearPQ.Insert(3);
+    //linearPQ.Sort();
+    std::cout<<"\n\nLa testa dell' albero e' : "<<linearPQ.TipNRemove()<<"\n";
+    linearPQ.PrintArray();
+
+    std::cout<<"\n\n";
+
+
+    //std::cout<<"POST CHANGE PRIORITY > : \n\n";
+    //linearPQ.ChangePriority(linearPQ.Root().RightChild(),2);
+
+
+    //linearPQ.Insert(0);
+    //linearPQ.Insert(1);
+    //linearPQ.Insert(2);
+
+    //linearPQ.PrintArray();
+
+    std::cout<<"SORT : \n\n";
+    linearPQ.Sort();
+    linearPQ.PrintArray();
+
+    std::cout<<"\n\n";
+    FunIntEx4ForBinaryTreeHeap(linearPQ);
+    linearPQ.PrintArray();
+
+
+
+
+
+
 
 }
 

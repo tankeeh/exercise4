@@ -14,7 +14,7 @@ namespace lasd {
 /* ************************************************************************** */
 
 template <typename Data>
-class Heap :  virtual protected SearchableContainer<Data>, virtual public BinaryTreeVec<Data>{ // Should extend SearchableContainer<Data> and BinaryTreeVec<Data>
+class Heap :  virtual public SearchableContainer<Data>,virtual protected BinaryTreeVec<Data>{
 
 private:
 

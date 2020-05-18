@@ -13,7 +13,7 @@ namespace lasd {
 /* ************************************************************************** */
 
 template <typename Data>
-class PriorityQueue: virtual public Heap<Data> { // Should extend Heap<Data>
+class PriorityQueue: virtual public Heap<Data> {
 
 private:
 
@@ -21,13 +21,16 @@ private:
 
 protected:
 
-  // using Heap<Data>::???;
+  using Heap<Data>::Heapify;
 
-  // ...
+  void UpSwap(typename BinaryTreeVec<Data>::NodeVec& node);
+
+    // ...
 
 public:
+    using BinaryTreeVec<Data>::Root;
 
-  // Default constructor
+    // Default constructor
   PriorityQueue() = default;
 
   // Specific constructor
@@ -68,14 +71,16 @@ public:
 
   // using Heap<Data>::Root;
 
-  Data Tip() const; // (might throw std::length_error)
+  Data& Tip() const; // (might throw std::length_error)
   void RemoveTip() ; // (might throw std::length_error)
-  const Data& TipNRemove(); // (might throw std::length_error)
+  const Data TipNRemove(); // (might throw std::length_error)
   void Insert(const Data&) noexcept ; // Copy of the value
   void Insert(Data&&) noexcept ; // Move of the value
 
-  void ChangePriority(const Data&) noexcept; // Change priority of a Node (Copy of the value)
-  void ChangePriority(Data&&) noexcept; // Change priority of a Node (Move of the value)
+  void ChangePriority(typename BinaryTreeVec<Data>::NodeVec& node,const Data&) noexcept; // Change priority of a Node (Copy of the value)
+  void ChangePriority(typename BinaryTreeVec<Data>::NodeVec& node,Data&&) noexcept; // Change priority of a Node (Move of the value)
+
+
 
 };
 

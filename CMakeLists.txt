@@ -26,7 +26,6 @@ include_directories(zmytest/UtilityFunctions)
 include_directories(zmytest/UtilityFunctions/commons)
 
 add_executable(exercise4
-
         zlasdtest/test.cpp
         zmytest/RandomGens/RandomValues.cpp
         zmytest/test.cpp
