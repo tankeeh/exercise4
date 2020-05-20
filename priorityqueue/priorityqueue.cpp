@@ -74,21 +74,21 @@ void PriorityQueue<Data>::UpSwap(typename BinaryTreeVec<Data>::NodeVec& node){
 
 template<typename Data>
 void PriorityQueue<Data>::Insert(const Data& item) noexcept {
-this->tree[this->size] = new typename BinaryTreeVec<Data>::NodeVec(item,&this->tree);
-this->tree[this->size]->setIndex(this->size);
-this->size++;
-if(this->size >= this->tree.Size()) this->Expand();
-UpSwap(*this->tree[this->size - 1]);
+    if(this->size >= this->tree.Size()) this->Expand();
+    this->tree[this->size] = new typename BinaryTreeVec<Data>::NodeVec(item,&this->tree);
+    this->tree[this->size]->setIndex(this->size);
+    this->size++;
+    UpSwap(*this->tree[this->size - 1]);
 }
 
 
 template<typename Data>
 void PriorityQueue<Data>::Insert(Data && item) noexcept {
-this->tree[this->size] = new typename BinaryTreeVec<Data>::NodeVec(std::move(item),&this->tree);
-this->tree[this->size]->setIndex(this->size);
-this->size++;
-if(this->size >= this->tree.Size()) this->Expand();
-UpSwap(*(this->tree[this->size -1]));
+    if(this->size >= this->tree.Size()) this->Expand();
+    this->tree[this->size] = new typename BinaryTreeVec<Data>::NodeVec(std::move(item),&this->tree);
+    this->tree[this->size]->setIndex(this->size);
+    this->size++;
+    UpSwap(*this->tree[this->size -1]);
 }
 
 template<typename Data>

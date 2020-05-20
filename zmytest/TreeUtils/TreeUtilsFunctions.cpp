@@ -52,9 +52,14 @@ void InitialConcatStringForBinaryTree(lasd::BinaryTree<Data>& tree, void* par){
     tree.MapPreOrder(&InitialConcatString<Data>,par);
 }
 
-
 template <typename Data>
 void InitialConcatStringForBinaryTreeHeap(lasd::Heap<Data>& heap, void* par){
+    heap.MapPreOrder(&InitialConcatString<Data>,par);
+}
+
+
+template <typename Data>
+void ForBinaryTreeHeap(lasd::Heap<Data>& heap, void* par){
     heap.MapPreOrder(&InitialConcatString<Data>,par);
 }
 

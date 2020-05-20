@@ -91,7 +91,7 @@ void MapFunIntEx4(Data & dat,void* par) {
 
 template <typename Data>
 void NegatifyData(Data & dat,void* par) {
-    *(Data*)dat = *(Data*)dat*(-1);
+    dat = dat*(-1);
 }
 
 
