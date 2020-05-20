@@ -24,6 +24,20 @@ void PrintElementTreePostOrder(lasd::BinaryTree<Data>& tree){
 }
 
 template <typename Data>
+void PrintElementHeapPreOrder(lasd::Heap<Data>& heap){
+    heap.MapPreOrder(&PrintElement<Data>, nullptr);
+}
+
+
+
+
+template <typename Data>
+void PrintElementHeapPostOrder(lasd::Heap<Data>& heap){
+    heap.MapPostOrder(&PrintElement<Data>, nullptr);
+}
+
+
+template <typename Data>
 void TriplicateIntForBinaryTree(lasd::BinaryTree<Data>& tree){
     tree.MapPreOrder(&TriplicateInt<Data>, nullptr);
 }

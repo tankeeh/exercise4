@@ -26,6 +26,7 @@ protected:
 
   using BinaryTreeVec<Data>::NodeVec;
 
+
   void BuildTree(Heap& heap,const LinearContainer<Data>& container) ;
 
   void BuildHeap();
@@ -37,7 +38,9 @@ protected:
 public:
     void PrintArray();
 
-  // Default constructor
+    using BinaryTreeVec<Data>::Root;
+
+    // Default constructor
   Heap() = default;
 
   // Specific constructor
@@ -87,6 +90,7 @@ public:
   void FoldPreOrder(FoldFunctor functor, const void *par, void *acc) const override ; // Override SearchableContainer member
   void FoldPostOrder(FoldFunctor functor, const void *par, void *acc) const override ; // Override SearchableContainer member
 
+  using SearchableContainer<Data>::Exists;
 
 };
 

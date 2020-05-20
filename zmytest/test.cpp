@@ -9,7 +9,7 @@
 #include "../priorityqueue/priorityqueue.hpp"
 #include "RandomGens/RandomValues.hpp"
 #include "./TreeUtils/TreeUtilsFunctions.hpp"
-//#include "./TreeUtils/treeNavFunctions/NavigateFunctions.hpp"
+#include "./TreeUtils/treeNavFunctions/NavigateFunctions.hpp"
 
 
 template <typename Data>
@@ -48,6 +48,8 @@ void testHeap(){
     std::cout<<"\n\n";
     linearHeap.Sort();
     linearHeap.PrintArray();
+
+    std::cout<<"Heap ex "<<linearHeap.Exists(11);
 
 
 }
@@ -101,6 +103,8 @@ void testPriorityQueue(){
     FunIntEx4ForBinaryTreeHeap(linearPQ);
     linearPQ.PrintArray();
 
+    std::cout<<"Heap ex "<<linearPQ.Exists(1500);
+
 
 
 
@@ -113,89 +117,30 @@ void testPriorityQueue(){
 
 
 
-/**BinaryTreeLnk**/
+/**BinaryTreeHeap**/
 
-/*
-void BinaryTreeLnkInt(){
+
+void BinaryTreeHeapInt(){
     char scelta = '0';
-    lasd::BinaryTreeLnk<int> albero;
+    int n;
 
-    while(scelta!= 'b' && scelta != '%') {
-        std::cout << "Che tipo di albero vuoi generare? : \n";
-        std::cout << "c. Completo. \n";
-        std::cout << "s. degenere a sinistra. \n";
-        std::cout << "d. degenere a destra. \n";
-        std::cout << "b. tornare indietro. \n";
+        std::cout << "Quanti elementi deve contenere il vettore di generazione ? : \n";
+        std::cin>>n;
+        lasd::Vector<int> vettore(n);
+        for(int i = 0;i<n;i++) vettore[i] = IntValueGenerator();
 
+        std::cout << "\n\n ** Generazione albero Heap tramite il vettore... ** \n\n";
 
-        std::cin >> scelta;
-
-        switch (scelta) {
-
-            case 'c': {
-                std::cout << " ** Generazione albero completo... ** \n\n";
-                albero.NewRoot(IntValueGenerator());
-                albero.AddLeftChild(albero.Root(), IntValueGenerator());
-                albero.AddRightChild(albero.Root(), IntValueGenerator());
-                albero.AddLeftChild(albero.Root().LeftChild(), IntValueGenerator());
-                albero.AddRightChild(albero.Root().LeftChild(), IntValueGenerator());
-                albero.AddLeftChild(albero.Root().RightChild(), IntValueGenerator());
-                albero.AddRightChild(albero.Root().RightChild(), IntValueGenerator());
-                scelta = '%';
-
-                break;
-            }
-            case 'd': {
-                std::cout << " ** Generazione albero degenere destro... ** \n\n";
-                albero.NewRoot(IntValueGenerator());
-                typename lasd::BinaryTreeLnk<int>::NodeLnk *node = &albero.Root();
-                std::cout << "quanti nodi vuoi inserire oltre la root? : ";
-                int n;
-                int i = 0;
-                std::cin >> n;
-                while (i < n) {
-                    albero.AddRightChild(*node, IntValueGenerator());
-                    node = &node->RightChild();
-                    i++;
-                }
-                scelta = '%';
-                break;
-            }
-            case 's': {
-                std::cout << " ** Generazione albero degenere sinistro... ** \n\n";
-                albero.NewRoot(IntValueGenerator());
-                typename lasd::BinaryTreeLnk<int>::NodeLnk *node = &albero.Root();
-                std::cout << "quanti nodi vuoi inserire oltre la root? : ";
-                int n;
-                int i = 0;
-                std::cin >> n;
-                while (i < n) {
-                    albero.AddLeftChild(*node, IntValueGenerator());
-                    node = &node->LeftChild();
-                    i++;
-                }
-                scelta = '%';
-                break;
-
-            }
-            case 'b':
-                return;
-            default:
-                std::cout << " Hai inserito un codice non valido! riprovare : ";
-        }
-    }
-
+        lasd::Heap<int> heap(vettore);
 
         while (scelta != 'b') {
-            std::cout << "\n\nCosa vuoi fare con il seguente BinaryTreeLnk di interi? : \n";
-            std::cout << "1. MapBreadth Print. \n";
-            std::cout << "2. MapPreOrder Print. \n";
-            std::cout << "3. MapInOrder Print. \n";
-            std::cout << "4. MapPostOrder Print. \n";
-            std::cout << "5. Exists. \n";
-            std::cout << "6. Fold MoltiplicateIntSmallerThan. \n";
-            std::cout << "7. Map TriplicateInt. \n";
-            std::cout << "8. SottoTest: Navigazione sui nodi dell' albero. \n";
+            std::cout << "\n\nCosa vuoi fare con il seguente MinHeap di interi? : \n";
+            std::cout << "1. MapPreOrder Print. \n";
+            std::cout << "2. MapPostOrder Print. \n";
+            std::cout << "3. Exists. \n";
+            std::cout << "4. Fold MoltiplicateIntSmallerThan. \n";
+            std::cout << "5. Map n*(-1)^n. \n";
+            std::cout << "6. Sort \n";
 
 
             std::cout << "b. tornare indietro. \n\n\n";
@@ -205,47 +150,40 @@ void BinaryTreeLnkInt(){
             switch (scelta) {
 
                 case '1':
-                    std::cout << " ** BREADTH PRINT ** \n\n";
-                    PrintElementTreeBreadth(albero);
+                    std::cout << " ** PREORDER PRINT ** \n\n";
+                    PrintElementHeapPreOrder(heap);
                     break;
                 case '2':
-                    std::cout << " ** PREORDER PRINT ** \n\n";
-                    PrintElementTreePreOrder(albero);
+                    std::cout << " ** POSTORDER PRINT ** \n\n";
+                    PrintElementHeapPostOrder(heap);
                     break;
                 case '3':
-                    std::cout << " ** INORDER PRINT ** \n\n";
-                    PrintElementTreeInOrder(albero);
-                    break;
-                case '4':
-                    std::cout << " ** POSTORDER PRINT ** \n\n";
-                    PrintElementTreePostOrder(albero);
-                    break;
-                case '5':
                     std::cout << " ** EXISTS ** \n\n";
                     std::cout << "Inserire il valore di cui si vuole verificare l'esistenza : ";
                     int item;
                     std::cin >> item;
-                    if(albero.Exists(item))std::cout<<"L'elemento e' presente nell' albero";
+                    if(heap.Exists(item))std::cout<<"L'elemento e' presente nell' albero";
                     else std::cout<<"L'elemento e' assente nell' albero";
                     break;
-                case '6':
+                case '4':
                     std::cout << " ** FOLD MoltiplicateIntSmallerThan ** \n\n";
                     std::cout << "Inserire il valore con cui chiamare la Fold : ";
                     int elem;
                     std::cin >> elem;
-                    std::cout<<"La moltiplicazione degli elementi minori di "<<elem<<" e' :"<<FoldTreeIntMoltiplicateSmallerThan(elem, albero);
+                    std::cout<<"La moltiplicazione degli elementi minori di "<<elem<<" e' :"<<FoldTreeHeapIntMoltiplicateSmallerThan(elem, heap);
                     break;
-                case '7':
-                    std::cout << " ** MAP TriplicateInt ** \n\n";
-                    TriplicateIntForBinaryTree(albero);
+                case '5':
+                    std::cout << " ** MAP n*(-1)^n ** \n\n";
+                    FunIntEx4ForBinaryTreeHeap(heap);
                     break;
-                case '8':
-                    std::cout << " ** SOTTOTEST NODI ** \n\n";
-                    intTreeLnkNavigation(&albero);
+                case '6':
+                    std::cout << "\n\n ** SORT ** \n\n";
+                    heap.Sort();
+                    std::cout << "L'albero e' adesso ordinato totalmente. \n\n";
                     break;
                 case 'b':
+                    return;
                     break;
-
                 default:
                     std::cout << " Hai inserito un codice non valido! riprovare : ";
 
@@ -253,8 +191,8 @@ void BinaryTreeLnkInt(){
 
             }
     }
-
-void BinaryTreeLnkFloat(){
+/*
+void BinaryTreeHeapFloat(){
     char scelta = '0';
     lasd::BinaryTreeLnk<float> albero;
 
@@ -394,7 +332,7 @@ void BinaryTreeLnkFloat(){
 
 }
 
-void BinaryTreeLnkString(){
+void BinaryTreeHeapString(){
     char scelta = '0';
     lasd::BinaryTreeLnk<std::string> albero;
 
@@ -545,15 +483,15 @@ void BinaryTreeLnkString(){
         }
 
 }
-
-void BinaryTreeLnk(){
+*/
+void BinaryTreeHeap(){
     char scelta = '0';
 
     while (scelta != 'e') {
         std::cout << "Vuoi testare : \n";
-        std::cout << "1.BinaryTreeLnk di interi. \n";
-        std::cout << "2.BinaryTreeLnk di float. \n";
-        std::cout << "3.BinaryTreeLnk di string. \n";
+        std::cout << "1.Heap di interi. \n";
+        std::cout << "2.Heap di float. \n";
+        std::cout << "3.Heap di string. \n";
 
         std::cout<<"\nb. tornare indietro.\n";
         std::cout << "e. per uscire \n\n\n";
@@ -563,16 +501,16 @@ void BinaryTreeLnk(){
         switch (scelta) {
 
             case '1':
-                std::cout << " ** BINARYTREELNK DI INTERI ** \n\n";
-                BinaryTreeLnkInt();
+                std::cout << " ** HEAP DI INTERI ** \n\n";
+                BinaryTreeHeapInt();
                 break;
             case '2':
-                std::cout << " ** BINARYTREELNK DI FLOAT ** \n\n";
-                BinaryTreeLnkFloat();
+                std::cout << " ** HEAP DI FLOAT ** \n\n";
+                //BinaryTreeHeapFloat();
                 break;
             case '3':
-                std::cout << " ** BINARYTREELNK DI STRINGHE ** \n\n";
-                BinaryTreeLnkString();
+                std::cout << " ** HEAP DI STRINGHE ** \n\n";
+                //BinaryTreeHeapString();
                 break;
             case 'b':
                 return;
@@ -588,11 +526,11 @@ void BinaryTreeLnk(){
     }
 }
 
-*/
 
 
 
-/**BinaryTreeVec**/
+
+/**BinaryTreePriorityQueue**/
 
 /*
 void BinaryTreeVecInt(){
@@ -1063,15 +1001,15 @@ void BinaryTreeVec(){
 
 
 
-
+*/
 void mytest() {
 
     char scelta = '0';
 
     while (scelta != 'e') {
         std::cout << "Prego, inserire : \n";
-        std::cout << "1. per testare un Albero Binario Lnk. \n";
-        std::cout << "2. per testare un Albero Binario Vec. \n";
+        std::cout << "1. per testare un Albero Heap. \n";
+        std::cout << "2. per testare una Priority Queue. \n";
 
         std::cout<<"\nb. tornare indietro.\n";
         std::cout << "e. per uscire \n\n\n";
@@ -1081,12 +1019,12 @@ void mytest() {
         switch (scelta) {
 
             case '1':
-                std::cout << " ** TEST BinaryTreeLnk ** \n\n";
-                BinaryTreeLnk();
+                std::cout << " ** TEST Heap ** \n\n";
+                BinaryTreeHeap();
                 break;
             case '2':
-                std::cout << " ** TEST BinaryTreeVec ** \n\n";
-                BinaryTreeVec();
+                std::cout << " ** TEST Priority Queue ** \n\n";
+                //BinaryTreeVec();
                 break;
             case 'b':
                 return;
@@ -1103,7 +1041,7 @@ void mytest() {
 }
 
 
-*/
+
 
 
 
