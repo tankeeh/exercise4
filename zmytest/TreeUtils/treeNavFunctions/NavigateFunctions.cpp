@@ -28,12 +28,18 @@ void intRecursivePQueueNavigate(lasd::PriorityQueue<Data>* Pqueue,typename lasd:
 
         switch(scelta){
             case '1':
-                std::cout<<"Mi sposto sul nodo sinistro...";
-                intRecursivePQueueNavigate(Pqueue,&node->LeftChild());
+                if(node->HasLeftChild()) {
+                    intRecursivePQueueNavigate(Pqueue,&node->LeftChild());
+                    std::cout<<"Mi sposto sul nodo sinistro...";
+                }else std::cout<<"Tale nodo non ha un figlio sinistro.";
+
                 break;
             case '2':
-                std::cout<<"Mi sposto sul nodo destro...";
-                intRecursivePQueueNavigate(Pqueue,&node->RightChild());
+                if(node->HasRightChild()){
+                    intRecursivePQueueNavigate(Pqueue,&node->RightChild());
+                    std::cout<<"Mi sposto sul nodo destro...";
+                }
+                else std::cout<<"Tale nodo non ha un figlio destro.";
                 break;
             case 'r':
                 if(node->HasParent()) {
@@ -48,15 +54,30 @@ void intRecursivePQueueNavigate(lasd::PriorityQueue<Data>* Pqueue,typename lasd:
                 Pqueue->Insert(item);
                 break;
             case '4':
-                std::cout<<"Il dato nella radice e' : "<<Pqueue->Tip()<<"\n\n";
+                try {
+                    std::cout << "Il dato nella radice e' : " << Pqueue->Tip() << "\n\n";
+                }
+                catch (std::length_error err){
+                    std::clog<<err.what()<<"\n";
+                }
                 break;
             case '5':
+                try{
                 std::cout<<"Il dato nella radice e' : "<<Pqueue->TipNRemove()<<"\n\n";
                 std::cout<<"\n\nRadice rimossa.\n\n";
+                }
+                catch (std::length_error err){
+                    std::clog<<err.what()<<"\n";
+                }
                 break;
             case '6':
                 std::cout<<"Rimozione della radice...\n";
+                try{
                 Pqueue->RemoveTip();
+                }
+                catch (std::length_error err){
+                    std::clog<<err.what()<<"\n";
+                }
                 break;
             case '7':
                 int val;
@@ -109,13 +130,17 @@ void floatRecursivePQueueNavigate(lasd::PriorityQueue<Data>* Pqueue,typename las
 
         switch(scelta){
             case '1':
-                std::cout<<"Mi sposto sul nodo sinistro...";
-                floatRecursivePQueueNavigate(Pqueue,&node->LeftChild());
-                break;
+                if(node->HasLeftChild()){
+                    floatRecursivePQueueNavigate(Pqueue,&node->LeftChild());
+                    std::cout<<"Mi sposto sul nodo sinistro...";
+                }
+                else std::cout<<"Tale nodo non ha un figlio sinistro.";
             case '2':
-                std::cout<<"Mi sposto sul nodo destro...";
-                floatRecursivePQueueNavigate(Pqueue,&node->RightChild());
-                break;
+                if(node->HasRightChild()){
+                    floatRecursivePQueueNavigate(Pqueue,&node->RightChild());
+                    std::cout<<"Mi sposto sul nodo destro...";
+                }
+                else std::cout<<"Tale nodo non ha un figlio destro.";
             case 'r':
                 if(node->HasParent()) {
                     std::cout << "Mi sposto sul nodo padre...";
@@ -129,15 +154,30 @@ void floatRecursivePQueueNavigate(lasd::PriorityQueue<Data>* Pqueue,typename las
                 Pqueue->Insert(item);
                 break;
             case '4':
+                try{
                 std::cout<<"Il dato nella radice e' : "<<Pqueue->Tip()<<"\n\n";
+                }
+                catch (std::length_error err){
+                    std::clog<<err.what()<<"\n";
+                }
                 break;
             case '5':
+                try{
                 std::cout<<"Il dato nella radice e' : "<<Pqueue->TipNRemove()<<"\n\n";
                 std::cout<<"\n\nRadice rimossa.\n\n";
+                }
+                catch (std::length_error err){
+                    std::clog<<err.what()<<"\n";
+                }
                 break;
             case '6':
+                try{
                 std::cout<<"Rimozione della radice...\n";
                 Pqueue->RemoveTip();
+                }
+                catch (std::length_error err){
+                    std::clog<<err.what()<<"\n";
+                }
                 break;
             case '7':
                 float val;
@@ -190,13 +230,17 @@ void stringRecursivePQueueNavigate(lasd::PriorityQueue<Data>* Pqueue,typename la
 
         switch(scelta) {
             case '1':
-                std::cout << "Mi sposto sul nodo sinistro...";
-                stringRecursivePQueueNavigate(Pqueue, &node->LeftChild());
-                break;
+                if(node->HasLeftChild()){
+                    stringRecursivePQueueNavigate(Pqueue,&node->LeftChild());
+                    std::cout<<"Mi sposto sul nodo sinistro...";
+                }
+                else std::cout<<"Tale nodo non ha un figlio sinistro.";
             case '2':
-                std::cout << "Mi sposto sul nodo destro...";
-                stringRecursivePQueueNavigate(Pqueue, &node->RightChild());
-                break;
+                if(node->HasRightChild()){
+                    stringRecursivePQueueNavigate(Pqueue,&node->RightChild());
+                    std::cout<<"Mi sposto sul nodo destro...";
+                }
+                else std::cout<<"Tale nodo non ha un figlio destro.";
             case 'r':
                 if (node->HasParent()) {
                     std::cout << "Mi sposto sul nodo padre...";
@@ -211,15 +255,30 @@ void stringRecursivePQueueNavigate(lasd::PriorityQueue<Data>* Pqueue,typename la
                 break;
             }
             case '4':
+                try{
                 std::cout << "Il dato nella radice e' : " << Pqueue->Tip() << "\n\n";
+                }
+                catch (std::length_error err){
+                    std::clog<<err.what()<<"\n";
+                }
                 break;
             case '5':
+                try{
                 std::cout << "Il dato nella radice e' : " << Pqueue->TipNRemove() << "\n\n";
                 std::cout << "\n\nRadice rimossa.\n\n";
+                }
+                catch (std::length_error err){
+                    std::clog<<err.what()<<"\n";
+                }
                 break;
             case '6':
+                try{
                 std::cout << "Rimozione della radice...\n";
                 Pqueue->RemoveTip();
+                }
+                catch (std::length_error err){
+                    std::clog<<err.what()<<"\n";
+                }
                 break;
             case '7':{
                 std::string val;

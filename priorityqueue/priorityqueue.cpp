@@ -95,11 +95,13 @@ template<typename Data>
 void PriorityQueue<Data>::ChangePriority(typename BinaryTreeVec<Data>::NodeVec& node,const Data& item) noexcept {
     if(item < node.Element()){
         node.Element() = item;
-        UpSwap(node);
+        this->BuildHeap();
+        //UpSwap(node);
     }
     else if(item > node.Element()){
         node.Element() = item;
-        Heapify(*this,node.getIndex(),this->size);
+        this->BuildHeap();
+        //Heapify(*this,node.getIndex(),this->size);
     }
 }
 
@@ -107,10 +109,12 @@ template<typename Data>
 void PriorityQueue<Data>::ChangePriority(typename BinaryTreeVec<Data>::NodeVec& node,Data&& item) noexcept {
     if(item < node.Element()){
         node.Element() = std::move(item);
-        UpSwap(node);
+        this->BuildHeap();
+        //UpSwap(node);
     }
     else if(item > node.Element()){
         node.Element() = std::move(item);
-        Heapify(*this,node.getIndex(),this->size);
+        this->BuildHeap();
+        //Heapify(*this,node.getIndex(),this->size);
     }
 }

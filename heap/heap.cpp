@@ -66,11 +66,12 @@ void Heap<Data>::Heapify(Heap& heap,int i,int heapsize){
     if(dx < heapsize && heap.tree[dx]->Element() <= heap.tree[minimo]->Element()) minimo=dx;
 
     if(minimo != i){
-        std::swap(heap.tree[i],heap.tree[minimo]);
+        std::swap(heap.tree[i]->Element(),heap.tree[minimo]->Element());
+        //std::swap(heap.tree[i],heap.tree[minimo]);
 
-          temp = heap.tree[i]->getIndex();
-          heap.tree[i]->setIndex(heap.tree[minimo]->getIndex());
-          heap.tree[minimo]->setIndex(temp);
+          //temp = heap.tree[i]->getIndex();
+          //heap.tree[i]->setIndex(heap.tree[minimo]->getIndex());
+          //heap.tree[minimo]->setIndex(temp);
 
         Heapify(heap,minimo,heapsize);
     }
@@ -83,21 +84,21 @@ void Heap<Data>::Sort(){
     this->BuildHeap();
     for(int j = this->size-1;j>0;j--){
 
-        std::swap(this->tree[0],this->tree[j]);
+        std::swap(this->tree[0]->Element(),this->tree[j]->Element());
 
-        temp = this->tree[j]->getIndex();
-        this->tree[j]->setIndex(this->tree[0]->getIndex());
-        this->tree[0]->setIndex(temp);
+        //temp = this->tree[j]->getIndex();
+        //this->tree[j]->setIndex(this->tree[0]->getIndex());
+        //this->tree[0]->setIndex(temp);
 
         Heapify(*this,0,j);
     }
 
     for(int k=0;k<(this->size)/2;k++){
-    std::swap(this->tree[k],this->tree[this->size-k-1]);
+    std::swap(this->tree[k]->Element(),this->tree[this->size-k-1]->Element());
 
-    temp = this->tree[k]->getIndex();
-    this->tree[k]->setIndex(this->tree[this->size-k-1]->getIndex());
-    this->tree[this->size-k-1]->setIndex(temp);
+    //temp = this->tree[k]->getIndex();
+    //this->tree[k]->setIndex(this->tree[this->size-k-1]->getIndex());
+    //this->tree[this->size-k-1]->setIndex(temp);
     }
 }
 
