@@ -4,6 +4,7 @@
 
 /* ************************************************************************** */
 
+#include <cmath>
 #include "../binarytree.hpp"
 #include "../../vector/vector.hpp"
 
@@ -28,9 +29,6 @@ protected:
     // ...
 
 public:
-
-  // using BinaryTree<Data>::???;
-
 
 struct NodeVec : virtual public BinaryTree<Data>::Node {
 

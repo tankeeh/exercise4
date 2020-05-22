@@ -4,10 +4,8 @@
 
 /* ************************************************************************** */
 #include "../container/container.hpp"
-//#include "../zmytest/UtilityFunctions/commons/commons.hpp"
-//#include "../queue/queue.hpp"
 #include "../queue/vec/queuevec.hpp"
-//#include "../queue/lst/queuelst.hpp"
+
 
 /* ************************************************************************** */
 
@@ -124,10 +122,6 @@ public:
 
   void FoldBreadth(FoldFunctor functor,const void *par,void* acc)const override;// Override BreadthSearchableContainer member
 
-  void PrintTreePreOrder(); // da spostare in una directory esterna
-  void PrintTreeInOrder();
-  void PrintTreePostOrder();
-  void PrintTreeBreadth();
 
 protected:
 

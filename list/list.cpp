@@ -1,5 +1,5 @@
 
-#include <stdexcept>
+
 
 
 /* ************************************************************************** */
@@ -49,6 +49,10 @@ template  <typename Data>
 bool List<Data>::Node:: operator!=(const Node& node)const noexcept{
     return !(this==node);
 }
+
+
+
+
 
 
 

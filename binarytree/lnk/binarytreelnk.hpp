@@ -17,17 +17,14 @@ class BinaryTreeLnk: virtual public BinaryTree<Data> {
 
 private:
 
-  // ...
 
 protected:
 
   using BinaryTree<Data>::size;
 
-  // ...
 
 public:
 
-  // using BinaryTree<Data>::???;
 
 struct NodeLnk : virtual public  BinaryTree<Data>::Node{
 
@@ -40,7 +37,6 @@ struct NodeLnk : virtual public  BinaryTree<Data>::Node{
         Data* val = nullptr;
         NodeLnk* sx = nullptr;
         NodeLnk* dx = nullptr;
-        // ...
 
     public:
 

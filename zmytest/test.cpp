@@ -13,6 +13,7 @@
 #include "../list/list.hpp"
 
 
+
 template <typename Data>
 void lasd::Heap<Data>::PrintArray(){
     for (int i =0; i<this->size; i++)
@@ -934,7 +935,8 @@ void BinaryTreePQueueInt(){
                 std::cout << "L'albero e' adesso ordinato totalmente. \n\n";
                 break;
             case '7':
-                std::cout << "\n\n ** NAVIGAZIONE TRA I NODI ** \n\n";
+                std::cout << "\n\n ** NAVIGAZIONE TRA I NODI ** \n";
+                std::cout<<"NOTA: per ritornare al menu' struttura occorre essere sulla Root dell' albero. \n\n";
                 intTreePQueueNavigation(&Pqueue);
                 break;
             case 'b':
@@ -1015,6 +1017,7 @@ void BinaryTreePQueueFloat(){
                 break;
             case '7':
                 std::cout << "\n\n ** NAVIGAZIONE TRA I NODI ** \n\n";
+                std::cout<<"NOTA: per ritornare al menu' struttura occorre essere sulla Root dell' albero. \n\n";
                 floatTreePQueueNavigation(&Pqueue);
                 break;
             case 'b':
@@ -1100,6 +1103,7 @@ void BinaryTreePQueueString(){
                 break;
             case '7':
                 std::cout << "\n\n ** NAVIGAZIONE TRA I NODI ** \n\n";
+                std::cout<<"NOTA: per ritornare al menu' struttura occorre essere sulla Root dell' albero. \n\n";
                 stringTreePQueueNavigation(&Pqueue);
                 break;
             case 'b':
@@ -1130,15 +1134,15 @@ void BinaryTreePriorityQueue(){
         switch (scelta) {
 
             case '1':
-                std::cout << " ** HEAP DI INTERI ** \n\n";
+                std::cout << " ** PRIORITY QUEUE DI INTERI ** \n\n";
                 BinaryTreePQueueInt();
                 break;
             case '2':
-                std::cout << " ** HEAP DI FLOAT ** \n\n";
+                std::cout << " ** PRIORITY QUEUE DI FLOAT ** \n\n";
                 BinaryTreePQueueFloat();
                 break;
             case '3':
-                std::cout << " ** HEAP DI STRINGHE ** \n\n";
+                std::cout << " ** PRIORITY QUEUE DI STRINGHE ** \n\n";
                 BinaryTreePQueueString();
                 break;
             case 'b':

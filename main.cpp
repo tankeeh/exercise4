@@ -3,18 +3,11 @@
 #include "zlasdtest/test.hpp"
 #include "zmytest/test.hpp"
 
-//#include "./stack/vec/stackvec.hpp"
-//#include "./queue/lst/queuelst.hpp"
-//#include "./queue/vec/queuevec.hpp"
-//#include "./binarytree/lnk/binarytreelnk.hpp"
-//#include "./binarytree/vec/binarytreevec.hpp"
 
-//using namespace lasd;
+
 
 int main(){
 
-//    testPriorityQueue();
-   //testHeap();
 
 /**MENU' FINALE**/
 

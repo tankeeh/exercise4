@@ -10,13 +10,15 @@ void intRecursivePQueueNavigate(lasd::PriorityQueue<Data>* Pqueue,typename lasd:
 
     char scelta = '0';
 
-    if(!(node->HasParent())) std::cout<<"\n Attualmente sei sulla Root dell' albero \n";
     while(scelta != 'e'){
+
+        if(!(node->HasParent())) std::cout<<"\n Attualmente sei sulla Root dell' albero \n";
 
         std::cout<<"\n1. per spostarsi sul nodo sinistro \n";
         std::cout<<"2. per spostarsi sul nodo destro \n";
         std::cout<<"r. per spostarsi sul nodo padre \n";
         std::cout<<"3. per aggiungere un nodo \n";
+        std::cout<<"v. per vedere il valore del nodo attuale\n";
         std::cout<<"4. per vedere il dato nella radice \n";
         std::cout<<"5. per vedere e rimuovere il dato nella radice\n";
         std::cout<<"6. per rimuovere nella radice  \n";
@@ -29,15 +31,15 @@ void intRecursivePQueueNavigate(lasd::PriorityQueue<Data>* Pqueue,typename lasd:
         switch(scelta){
             case '1':
                 if(node->HasLeftChild()) {
-                    intRecursivePQueueNavigate(Pqueue,&node->LeftChild());
                     std::cout<<"Mi sposto sul nodo sinistro...";
+                    intRecursivePQueueNavigate(Pqueue,&node->LeftChild());
                 }else std::cout<<"Tale nodo non ha un figlio sinistro.";
 
                 break;
             case '2':
                 if(node->HasRightChild()){
-                    intRecursivePQueueNavigate(Pqueue,&node->RightChild());
                     std::cout<<"Mi sposto sul nodo destro...";
+                    intRecursivePQueueNavigate(Pqueue,&node->RightChild());
                 }
                 else std::cout<<"Tale nodo non ha un figlio destro.";
                 break;
@@ -52,6 +54,9 @@ void intRecursivePQueueNavigate(lasd::PriorityQueue<Data>* Pqueue,typename lasd:
                 std::cout<<"Che valore deve avere il nuovo nodo ? \n";
                 std::cin>>item;
                 Pqueue->Insert(item);
+                break;
+            case 'v':
+                std::cout<<"\nIl valore del nodo che si sta visitando e' : "<<node->Element()<<" \n\n";
                 break;
             case '4':
                 try {
@@ -87,9 +92,10 @@ void intRecursivePQueueNavigate(lasd::PriorityQueue<Data>* Pqueue,typename lasd:
                 Pqueue->ChangePriority(*node,val);
                 std::cout<<"Ricostruzione del MinHeap...";
                 break;
-            case 'e':
+            case 'e': {
                 std::cout << " Esco dalla navigazione nodi... \n";
                 return;
+                }
             default:
                 std::cout<<"carattere non valido.";
     }
@@ -112,13 +118,15 @@ void floatRecursivePQueueNavigate(lasd::PriorityQueue<Data>* Pqueue,typename las
 
     char scelta = '0';
 
-    if(!(node->HasParent())) std::cout<<"\n Attualmente sei sulla Root dell' albero \n";
     while(scelta != 'e'){
+
+        if(!(node->HasParent())) std::cout<<"\n Attualmente sei sulla Root dell' albero \n";
 
         std::cout<<"\n1. per spostarsi sul nodo sinistro \n";
         std::cout<<"2. per spostarsi sul nodo destro \n";
         std::cout<<"r. per spostarsi sul nodo padre \n";
         std::cout<<"3. per aggiungere un nodo \n";
+        std::cout<<"v. per vedere il valore del nodo attuale\n";
         std::cout<<"4. per vedere il dato nella radice \n";
         std::cout<<"5. per vedere e rimuovere il dato nella radice\n";
         std::cout<<"6. per rimuovere nella radice  \n";
@@ -131,14 +139,14 @@ void floatRecursivePQueueNavigate(lasd::PriorityQueue<Data>* Pqueue,typename las
         switch(scelta){
             case '1':
                 if(node->HasLeftChild()){
-                    floatRecursivePQueueNavigate(Pqueue,&node->LeftChild());
                     std::cout<<"Mi sposto sul nodo sinistro...";
+                    floatRecursivePQueueNavigate(Pqueue,&node->LeftChild());
                 }
                 else std::cout<<"Tale nodo non ha un figlio sinistro.";
             case '2':
                 if(node->HasRightChild()){
-                    floatRecursivePQueueNavigate(Pqueue,&node->RightChild());
                     std::cout<<"Mi sposto sul nodo destro...";
+                    floatRecursivePQueueNavigate(Pqueue,&node->RightChild());
                 }
                 else std::cout<<"Tale nodo non ha un figlio destro.";
             case 'r':
@@ -152,6 +160,9 @@ void floatRecursivePQueueNavigate(lasd::PriorityQueue<Data>* Pqueue,typename las
                 std::cout<<"Che valore deve avere il nuovo nodo ? \n";
                 std::cin>>item;
                 Pqueue->Insert(item);
+                break;
+            case 'v':
+                std::cout<<"\nIl valore del nodo che si sta visitando e' : "<<node->Element()<<" \n\n";
                 break;
             case '4':
                 try{
@@ -211,14 +222,15 @@ void stringRecursivePQueueNavigate(lasd::PriorityQueue<Data>* Pqueue,typename la
 
     char scelta = '0';
 
-    if(!(node->HasParent())) std::cout<<"\n Attualmente sei sulla Root dell' albero \n";
-
     while(scelta != 'e'){
+
+        if(!(node->HasParent())) std::cout<<"\n Attualmente sei sulla Root dell' albero \n";
 
         std::cout<<"\n1. per spostarsi sul nodo sinistro \n";
         std::cout<<"2. per spostarsi sul nodo destro \n";
         std::cout<<"r. per spostarsi sul nodo padre \n";
         std::cout<<"3. per aggiungere un nodo \n";
+        std::cout<<"v. per vedere il valore del nodo attuale\n";
         std::cout<<"4. per vedere il dato nella radice \n";
         std::cout<<"5. per vedere e rimuovere il dato nella radice\n";
         std::cout<<"6. per rimuovere nella radice  \n";
@@ -231,14 +243,14 @@ void stringRecursivePQueueNavigate(lasd::PriorityQueue<Data>* Pqueue,typename la
         switch(scelta) {
             case '1':
                 if(node->HasLeftChild()){
-                    stringRecursivePQueueNavigate(Pqueue,&node->LeftChild());
                     std::cout<<"Mi sposto sul nodo sinistro...";
+                    stringRecursivePQueueNavigate(Pqueue,&node->LeftChild());
                 }
                 else std::cout<<"Tale nodo non ha un figlio sinistro.";
             case '2':
                 if(node->HasRightChild()){
-                    stringRecursivePQueueNavigate(Pqueue,&node->RightChild());
                     std::cout<<"Mi sposto sul nodo destro...";
+                    stringRecursivePQueueNavigate(Pqueue,&node->RightChild());
                 }
                 else std::cout<<"Tale nodo non ha un figlio destro.";
             case 'r':
@@ -254,6 +266,9 @@ void stringRecursivePQueueNavigate(lasd::PriorityQueue<Data>* Pqueue,typename la
                 Pqueue->Insert(item);
                 break;
             }
+            case 'v':
+                std::cout<<"\nIl valore del nodo che si sta visitando e' : "<<node->Element()<<" \n\n";
+                break;
             case '4':
                 try{
                 std::cout << "Il dato nella radice e' : " << Pqueue->Tip() << "\n\n";

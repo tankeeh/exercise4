@@ -28,7 +28,7 @@ protected:
     // ...
 
 public:
-    using BinaryTreeVec<Data>::Root;
+  using BinaryTreeVec<Data>::Root;
 
     // Default constructor
   PriorityQueue() = default;
