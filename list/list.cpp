@@ -52,10 +52,6 @@ bool List<Data>::Node:: operator!=(const Node& node)const noexcept{
 
 
 
-
-
-
-
 //OPERATORE DI ACCESSO ALLA LISTA
 template <typename Data>
 Data& List<Data>:: operator[](const unsigned int position)const {
