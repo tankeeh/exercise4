@@ -22,7 +22,6 @@ private:
 
 protected:
 
-  // using SearchableContainer<Data>::???;
 
   using BinaryTreeVec<Data>::NodeVec;
 

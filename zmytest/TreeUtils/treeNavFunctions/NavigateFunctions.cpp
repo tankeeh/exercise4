@@ -12,7 +12,6 @@ void intRecursivePQueueNavigate(lasd::PriorityQueue<Data>* Pqueue,typename lasd:
 
     while(scelta != 'e'){
 
-        if(!(node->HasParent())) std::cout<<"\n Attualmente sei sulla Root dell' albero \n";
 
         std::cout<<"\n1. per spostarsi sul nodo sinistro \n";
         std::cout<<"2. per spostarsi sul nodo destro \n";
@@ -107,6 +106,7 @@ void intRecursivePQueueNavigate(lasd::PriorityQueue<Data>* Pqueue,typename lasd:
 
 template <typename Data>
 void intTreePQueueNavigation(lasd::PriorityQueue<Data>* Pqueue){
+    std::cout<<"\n Attualmente sei sulla Root dell' albero \n";
     intRecursivePQueueNavigate(Pqueue,&Pqueue->Root());
 }
 
@@ -120,7 +120,6 @@ void floatRecursivePQueueNavigate(lasd::PriorityQueue<Data>* Pqueue,typename las
 
     while(scelta != 'e'){
 
-        if(!(node->HasParent())) std::cout<<"\n Attualmente sei sulla Root dell' albero \n";
 
         std::cout<<"\n1. per spostarsi sul nodo sinistro \n";
         std::cout<<"2. per spostarsi sul nodo destro \n";
@@ -212,6 +211,7 @@ void floatRecursivePQueueNavigate(lasd::PriorityQueue<Data>* Pqueue,typename las
 
 template <typename Data>
 void floatTreePQueueNavigation(lasd::PriorityQueue<Data>* Pqueue){
+    std::cout<<"\n Attualmente sei sulla Root dell' albero \n";
     floatRecursivePQueueNavigate(Pqueue,&Pqueue->Root());
 }
 
@@ -224,7 +224,6 @@ void stringRecursivePQueueNavigate(lasd::PriorityQueue<Data>* Pqueue,typename la
 
     while(scelta != 'e'){
 
-        if(!(node->HasParent())) std::cout<<"\n Attualmente sei sulla Root dell' albero \n";
 
         std::cout<<"\n1. per spostarsi sul nodo sinistro \n";
         std::cout<<"2. per spostarsi sul nodo destro \n";
@@ -318,6 +317,7 @@ void stringRecursivePQueueNavigate(lasd::PriorityQueue<Data>* Pqueue,typename la
 
 template <typename Data>
 void stringTreePQueueNavigation(lasd::PriorityQueue<Data>* Pqueue){
+    std::cout<<"\n Attualmente sei sulla Root dell' albero \n";
     stringRecursivePQueueNavigate(Pqueue,&Pqueue->Root());
 }
 

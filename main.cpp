@@ -9,9 +9,9 @@
 int main(){
 
     //testHeap();
-    testPriorityQueue();
+    //testPriorityQueue();
 /**MENU' FINALE**/
-/*
+
     char scelta = '0';
 
     while (scelta != 'e') {
@@ -33,9 +33,8 @@ int main(){
                 mytest();
                 break;
             case 'e':
-                std::cout << " Program is gonna stop... \n";
+                std::cout << " Il programma sta per chiudersi... \n";
                 exit(0);
-                break;
 
             default:
                 std::cout << " Hai inserito un codice non valido! riprovare : ";
@@ -43,7 +42,7 @@ int main(){
     }
 
   return 0;
-*/
+
 }
 
 // ...
