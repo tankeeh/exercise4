@@ -8,9 +8,10 @@
 
 int main(){
 
-
+    //testHeap();
+    testPriorityQueue();
 /**MENU' FINALE**/
-
+/*
     char scelta = '0';
 
     while (scelta != 'e') {
@@ -42,7 +43,7 @@ int main(){
     }
 
   return 0;
-
+*/
 }
 
 // ...

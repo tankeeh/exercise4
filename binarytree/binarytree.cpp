@@ -7,7 +7,7 @@
 // ...
 
 template <typename Data>
-bool NodeEquality(const typename BinaryTree<Data>::Node& Node,const typename BinaryTree<Data>::Node& Node2){
+bool BinaryTree<Data>::NodeEquality(const typename BinaryTree<Data>::Node& Node,const typename BinaryTree<Data>::Node& Node2)const{
     if(Node.IsLeaf() && Node2.IsLeaf()){
         return Node.Element() == Node2.Element();
     }

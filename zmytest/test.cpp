@@ -1,10 +1,6 @@
 
 
 #include <iostream>
-//#include "../stack/vec/stackvec.hpp"
-//#include "../queue/vec/queuevec.hpp"
-//#include "../stack/lst/stacklst.hpp"
-//#include "../queue/lst/queuelst.hpp"
 #include "../heap/heap.hpp"
 #include "../priorityqueue/priorityqueue.hpp"
 #include "RandomGens/RandomValues.hpp"
@@ -28,11 +24,6 @@ void lasd::Heap<Data>::PrintArray(){
 
 void testHeap(){
 
-     /*
-    lasd::List<int> lista;
-    for (int i=0; i<30; i++){
-        lista.InsertAtBack(12 - i);
-    }*/
 
 
 
@@ -43,8 +34,53 @@ void testHeap(){
 
 
     lasd::Heap<int> linearHeap(vettore);
-    std::cout<<"STAMPA"<<std::endl;
+    std::cout<<"*Heap*"<<std::endl;
 
+    std::cout<<"\n\nTEST COPY CONSTRUCTOR : "<<std::endl;
+    lasd::Heap<int> linearHeap2(linearHeap);
+    std::cout<<"stampa di LinearHeap2 : "<<std::endl;
+    linearHeap2.PrintArray();
+
+
+    std::cout<<"\n\nTEST MOVE CONSTRUCTOR : "<<std::endl;
+    lasd::Heap<int> linearHeap3(std::move(linearHeap));
+    std::cout<<"stampa di LinearHeap passato con move (vuoto) : "<<std::endl;
+    linearHeap.PrintArray();
+    std::cout<<"stampa di LinearHeap3  : "<<std::endl;
+    linearHeap3.PrintArray();
+
+    std::cout<<"\n\nTEST COPY ASSIGNMENT : "<<std::endl;
+    linearHeap = linearHeap3;
+    std::cout<<"stampa di LinearHeap al quale e' assegnato linearheap3  : "<<std::endl;
+    linearHeap.PrintArray();
+
+    std::cout<<"\n\nTEST MOVE ASSIGNMENT : "<<std::endl;
+    linearHeap = std::move(linearHeap3);
+    std::cout<<"stampa di LinearHeap3 passato assegnato per move (vuoto) : "<<std::endl;
+    linearHeap3.PrintArray();
+    std::cout<<"stampa di LinearHeap al quale e' assegnato linearheap3 : "<<std::endl;
+    linearHeap.PrintArray();
+
+    std::cout<<"\n\nTest di uguaglianza : \n";
+
+    if(linearHeap == linearHeap2) std::cout<<"le due strutture sono uguali\n";
+    else std::cout<<"sono diversi\n";
+
+    if(linearHeap == linearHeap3) std::cout<<"le due strutture sono uguali\n";
+    else std::cout<<"sono diversi\n";
+
+    lasd::Heap<int> linearHeap4;
+    if(linearHeap4 == linearHeap3) std::cout<<"le due strutture sono uguali\n";
+    else std::cout<<"sono diversi";
+
+    std::cout<<"\ntest vuotezza linearheap3 : "<<linearHeap3.Empty();
+
+    std::cout<<"\ntest vuotezza linearheap : "<<linearHeap.Empty();
+
+    std::cout<<"\nsize linearheap : "<<linearHeap.Size();
+
+
+/*
     linearHeap.PrintArray();
 
     std::cout<<"\n\n";
@@ -53,10 +89,65 @@ void testHeap(){
 
     std::cout<<"Heap ex "<<linearHeap.Exists(11);
 
-
+*/
 }
 
 void testPriorityQueue(){
+
+
+    lasd::Vector<int> vettore(7);
+    for(int i=0;i<7;i++){
+        vettore[i] = 12 -i;
+    }
+
+
+    lasd::PriorityQueue<int> PQ1(vettore);
+    std::cout<<"*priority queue* "<<std::endl;
+
+    std::cout<<"TEST COPY CONSTRUCTOR : "<<std::endl;
+    lasd::PriorityQueue<int> PQ2(PQ1);
+    std::cout<<"stampa di LinearHeap2 : "<<std::endl;
+    PQ2.PrintArray();
+
+
+    std::cout<<"\n\nTEST MOVE CONSTRUCTOR : "<<std::endl;
+    lasd::PriorityQueue<int> PQ3(std::move(PQ1));
+    std::cout<<"stampa di LinearHeap passato con move (vuoto) : "<<std::endl;
+    PQ1.PrintArray();
+    std::cout<<"stampa di LinearHeap3  : "<<std::endl;
+    PQ3.PrintArray();
+
+    std::cout<<"\n\nTEST COPY ASSIGNMENT : "<<std::endl;
+    PQ1 = PQ3;
+    std::cout<<"stampa di LinearHeap al quale e' assegnato linearheap3  : "<<std::endl;
+    PQ1.PrintArray();
+
+    std::cout<<"\n\nTEST MOVE ASSIGNMENT : "<<std::endl;
+    PQ1 = std::move(PQ3);
+    std::cout<<"stampa di LinearHeap3 passato assegnato per move (vuoto) : "<<std::endl;
+    PQ3.PrintArray();
+    std::cout<<"stampa di LinearHeap al quale e' assegnato linearheap3 : "<<std::endl;
+    PQ1.PrintArray();
+
+    std::cout<<"\n\nTest di uguaglianza : \n";
+
+    if(PQ1 == PQ2) std::cout<<"le due strutture sono uguali\n";
+    else std::cout<<"sono diversi\n";
+
+    if(PQ1 == PQ3) std::cout<<"le due strutture sono uguali\n";
+    else std::cout<<"sono diversi\n";
+
+    lasd::PriorityQueue<int> PQ4;
+    if(PQ4 == PQ3) std::cout<<"le due strutture sono uguali\n";
+    else std::cout<<"sono diversi";
+
+    std::cout<<"\ntest vuotezza linearheap3 : "<<PQ3.Empty();
+
+    std::cout<<"\ntest vuotezza linearheap : "<<PQ1.Empty();
+
+    std::cout<<"\nsize linearheap : "<<PQ1.Size();
+
+    /*
 
     lasd::Vector<int> vettore(7);
     for(int i=0;i<7;i++){
@@ -107,7 +198,7 @@ void testPriorityQueue(){
 
     std::cout<<"Heap ex "<<linearPQ.Exists(1500);
 
-
+*/
 
 
 

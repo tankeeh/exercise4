@@ -25,6 +25,7 @@ protected:
   using BreadthSearchableContainer<Data>::size;
 
   // ...
+  bool NodeEquality(const typename BinaryTree<Data>::Node& Node,const typename BinaryTree<Data>::Node& Node2)const;
 
 public:
 

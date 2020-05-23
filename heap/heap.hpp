@@ -26,6 +26,8 @@ protected:
 
   using BinaryTreeVec<Data>::NodeVec;
 
+  //using BinaryTree<Data>::NodeEquality;
+
 
   void BuildTree(Heap& heap,const LinearContainer<Data>& container) ;
 
