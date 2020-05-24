@@ -4,7 +4,6 @@
 
 
 /**NAVIGAZIONE SULLE PRIORITY QUEUES**/
-
 template <typename Data>
 void intRecursivePQueueNavigate(lasd::PriorityQueue<Data>* Pqueue,typename lasd::BinaryTreeVec<Data>::NodeVec* node){
 
@@ -204,7 +203,7 @@ void floatRecursivePQueueNavigate(lasd::PriorityQueue<Data>* Pqueue,typename las
                 std::cout << "Quale valore vuoi che sovrascriva il nodo che attualmente stai visitando ? \n";
                 std::cin >> val;
                 Pqueue->ChangePriority(*node, val);
-                std::cout << "Ricostruzione del MinHeap...";
+                std::cout << "Ricostruzione della Priority Queue come MinHeap...";
                 }else std::clog<<"\n Nodo non presente. E' possibile che la priority queue sia vuota.\n\n";
                 break;
             case 'e':
@@ -315,7 +314,7 @@ void stringRecursivePQueueNavigate(lasd::PriorityQueue<Data>* Pqueue,typename la
                 std::cout << "Quale valore vuoi che sovrascriva il nodo che attualmente stai visitando ? \n";
                 std::cin >> val;
                 Pqueue->ChangePriority(*node, val);
-                std::cout << "Ricostruzione del MinHeap...";
+                std::cout << "Ricostruzione della Priority Queue come MinHeap...";
             }else std::clog<<"\n Nodo non presente. E' possibile che la priority queue sia vuota.\n\n";
                 break;
             }
