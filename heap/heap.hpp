@@ -37,7 +37,7 @@ protected:
   // ...
 
 public:
-    void PrintArray();
+
 
     using BinaryTreeVec<Data>::Root;
 

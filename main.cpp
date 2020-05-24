@@ -8,8 +8,7 @@
 
 int main(){
 
-    //testHeap();
-    //testPriorityQueue();
+
 /**MENU' FINALE**/
 
     char scelta = '0';

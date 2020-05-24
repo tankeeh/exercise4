@@ -4,13 +4,7 @@
 
 #ifndef EXERCISE2_TREEUTILSFUNCTIONS_HPP
 #define EXERCISE2_TREEUTILSFUNCTIONS_HPP
-//#include "../../binarytree/binarytree.hpp"
 #include "../UtilityFunctions/commons/commons.hpp"
-//#include "../../binarytree/lnk/binarytreelnk.hpp"
-//#include "../../heap/heap.hpp"
-//#include <string>
-
-
 
 
 template <typename Data>

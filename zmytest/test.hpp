@@ -6,8 +6,8 @@
 
 void mytest();
 
-void testHeap();
-void testPriorityQueue();
+//void testHeap();
+//void testPriorityQueue();
 
 // ...
 
