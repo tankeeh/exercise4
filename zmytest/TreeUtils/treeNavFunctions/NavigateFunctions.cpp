@@ -55,7 +55,11 @@ void intRecursivePQueueNavigate(lasd::PriorityQueue<Data>* Pqueue,typename lasd:
                 Pqueue->Insert(item);
                 break;
             case 'v':
-                std::cout<<"\nIl valore del nodo che si sta visitando e' : "<<node->Element()<<" \n\n";
+                if(node->getIndex() <= Pqueue->Size()) std::cout<<"\nIl valore del nodo che si sta visitando e' : "<<node->Element()<<" \n\n";
+                else {
+                    std::clog<<"\n Nodo non presente. E' possibile si stia visitando una locazione non piu' rilevante. mi sposto sulla Radice...";
+                    intRecursivePQueueNavigate(Pqueue,&Pqueue->Root());
+                }
                 break;
             case '4':
                 try {
@@ -84,15 +88,17 @@ void intRecursivePQueueNavigate(lasd::PriorityQueue<Data>* Pqueue,typename lasd:
                 }
                 break;
             case '7':
-                int val;
-                std::cout<<"** CHANGE PRIORITY **";
-                std::cout<<"Quale valore vuoi che sovrascriva il nodo che attualmente stai visitando ? \n";
-                std::cin>>val;
-                Pqueue->ChangePriority(*node,val);
-                std::cout<<"Ricostruzione del MinHeap...";
+                if(!(Pqueue->Empty())) {
+                    int val;
+                    std::cout << "** CHANGE PRIORITY **";
+                    std::cout << "Quale valore vuoi che sovrascriva il nodo che attualmente stai visitando ? \n";
+                    std::cin >> val;
+                    Pqueue->ChangePriority(*node, val);
+                    std::cout << "Ricostruzione della Priority Queue come MinHeap...";
+                }else std::clog<<"\n Nodo non presente. E' possibile che la priority queue sia vuota.\n\n";
                 break;
             case 'e': {
-                std::cout << " Esco dalla navigazione nodi... \n";
+                std::cout << " Esco dalla navigazione nodi... (potrebbe esserci la necessita' di richiamare piu' volte questo comando) \n";
                 return;
                 }
             default:
@@ -135,70 +141,74 @@ void floatRecursivePQueueNavigate(lasd::PriorityQueue<Data>* Pqueue,typename las
         std::cout<<"\n\ncosa intendi fare ? \n";
         std::cin>>scelta;
 
-        switch(scelta){
+        switch(scelta) {
             case '1':
-                if(node->HasLeftChild()){
-                    std::cout<<"Mi sposto sul nodo sinistro...";
-                    floatRecursivePQueueNavigate(Pqueue,&node->LeftChild());
-                }
-                else std::clog<<"Tale nodo non ha un figlio sinistro. \n\n";
+                if (node->HasLeftChild()) {
+                    std::cout << "Mi sposto sul nodo sinistro...";
+                    floatRecursivePQueueNavigate(Pqueue, &node->LeftChild());
+                } else std::clog << "Tale nodo non ha un figlio sinistro. \n\n";
             case '2':
-                if(node->HasRightChild()){
-                    std::cout<<"Mi sposto sul nodo destro...";
-                    floatRecursivePQueueNavigate(Pqueue,&node->RightChild());
-                }
-                else std::clog<<"Tale nodo non ha un figlio destro. \n\n";
+                if (node->HasRightChild()) {
+                    std::cout << "Mi sposto sul nodo destro...";
+                    floatRecursivePQueueNavigate(Pqueue, &node->RightChild());
+                } else std::clog << "Tale nodo non ha un figlio destro. \n\n";
             case 'r':
-                if(node->HasParent()) {
+                if (node->HasParent()) {
                     std::cout << "Mi sposto sul nodo padre...";
                     return;
-                }else std::clog<<"Tale nodo non ha un nodo padre. \n\n";
+                } else std::clog << "Tale nodo non ha un nodo padre. \n\n";
                 break;
             case '3':
                 float item;
-                std::cout<<"Che valore deve avere il nuovo nodo ? \n";
-                std::cin>>item;
+                std::cout << "Che valore deve avere il nuovo nodo ? \n";
+                std::cin >> item;
                 Pqueue->Insert(item);
                 break;
             case 'v':
-                std::cout<<"\nIl valore del nodo che si sta visitando e' : "<<node->Element()<<" \n\n";
+                if(node->getIndex() <= Pqueue->Size()) std::cout<<"\nIl valore del nodo che si sta visitando e' : "<<node->Element()<<" \n\n";
+                else {
+                    std::clog<<"\n Nodo non presente. E' possibile si stia visitando una locazione non piu' rilevante. mi sposto sulla Radice...";
+                    floatRecursivePQueueNavigate(Pqueue,&Pqueue->Root());
+                }
                 break;
             case '4':
-                try{
-                std::cout<<"Il dato nella radice e' : "<<Pqueue->Tip()<<"\n\n";
+                try {
+                    std::cout << "Il dato nella radice e' : " << Pqueue->Tip() << "\n\n";
                 }
-                catch (std::length_error err){
-                    std::clog<<err.what()<<"\n";
+                catch (std::length_error err) {
+                    std::clog << err.what() << "\n";
                 }
                 break;
             case '5':
-                try{
-                std::cout<<"Il dato nella radice e' : "<<Pqueue->TipNRemove()<<"\n\n";
-                std::cout<<"\n\nRadice rimossa.\n\n";
+                try {
+                    std::cout << "Il dato nella radice e' : " << Pqueue->TipNRemove() << "\n\n";
+                    std::cout << "\n\nRadice rimossa.\n\n";
                 }
-                catch (std::length_error err){
-                    std::clog<<err.what()<<"\n";
+                catch (std::length_error err) {
+                    std::clog << err.what() << "\n";
                 }
                 break;
             case '6':
-                try{
-                std::cout<<"Rimozione della radice...\n";
-                Pqueue->RemoveTip();
+                try {
+                    std::cout << "Rimozione della radice...\n";
+                    Pqueue->RemoveTip();
                 }
-                catch (std::length_error err){
-                    std::clog<<err.what()<<"\n";
+                catch (std::length_error err) {
+                    std::clog << err.what() << "\n";
                 }
                 break;
             case '7':
+                if(!(Pqueue->Empty())){
                 float val;
-                std::cout<<"** CHANGE PRIORITY **";
-                std::cout<<"Quale valore vuoi che sovrascriva il nodo che attualmente stai visitando ? \n";
-                std::cin>>val;
-                Pqueue->ChangePriority(*node,val);
-                std::cout<<"Ricostruzione del MinHeap...";
+                std::cout << "** CHANGE PRIORITY **";
+                std::cout << "Quale valore vuoi che sovrascriva il nodo che attualmente stai visitando ? \n";
+                std::cin >> val;
+                Pqueue->ChangePriority(*node, val);
+                std::cout << "Ricostruzione del MinHeap...";
+                }else std::clog<<"\n Nodo non presente. E' possibile che la priority queue sia vuota.\n\n";
                 break;
             case 'e':
-                std::cout << " Esco dalla navigazione nodi... \n";
+                std::cout << " Esco dalla navigazione nodi... (potrebbe esserci la necessita' di richiamare piu' volte questo comando) \n";
                 return;
             default:
                 std::cout<<"carattere non valido.";
@@ -266,7 +276,11 @@ void stringRecursivePQueueNavigate(lasd::PriorityQueue<Data>* Pqueue,typename la
                 break;
             }
             case 'v':
-                std::cout<<"\nIl valore del nodo che si sta visitando e' : "<<node->Element()<<" \n\n";
+                if(node->getIndex() <= Pqueue->Size()) std::cout<<"\nIl valore del nodo che si sta visitando e' : "<<node->Element()<<" \n\n";
+                else {
+                    std::clog<<"\n Nodo non presente. E' possibile si stia visitando una locazione non piu' rilevante. mi sposto sulla Radice...";
+                    stringRecursivePQueueNavigate(Pqueue,&Pqueue->Root());
+                }
                 break;
             case '4':
                 try{
@@ -294,17 +308,19 @@ void stringRecursivePQueueNavigate(lasd::PriorityQueue<Data>* Pqueue,typename la
                     std::clog<<err.what()<<"\n";
                 }
                 break;
-            case '7':{
+            case '7': {
+                if(!(Pqueue->Empty())){
                 std::string val;
                 std::cout << "** CHANGE PRIORITY **";
                 std::cout << "Quale valore vuoi che sovrascriva il nodo che attualmente stai visitando ? \n";
                 std::cin >> val;
                 Pqueue->ChangePriority(*node, val);
                 std::cout << "Ricostruzione del MinHeap...";
+            }else std::clog<<"\n Nodo non presente. E' possibile che la priority queue sia vuota.\n\n";
                 break;
             }
             case 'e':
-                std::cout << " Esco dalla navigazione nodi... \n";
+                std::cout << " Esco dalla navigazione nodi... (potrebbe esserci la necessita' di richiamare piu' volte questo comando) \n";
                 return;
             default:
                 std::cout<<"carattere non valido.";
