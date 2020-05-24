@@ -492,8 +492,8 @@ void BinaryTreePQueueInt(){
                 break;
             case '7':
                 std::cout << "\n\n ** NAVIGAZIONE TRA I NODI ** \n";
-                std::cout<<"NOTA: per ritornare al menu' struttura occorre essere sulla Root dell' albero. \n\n";
-                intTreePQueueNavigation(&Pqueue);
+                std::cout<<"NOTA: Le funzioni 'tip' sono disponibili solo sulla root dell' albero. \n\n";
+                TreePQueueNavigation(&Pqueue);
                 break;
             case 'b':
                 return;
@@ -573,8 +573,8 @@ void BinaryTreePQueueFloat(){
                 break;
             case '7':
                 std::cout << "\n\n ** NAVIGAZIONE TRA I NODI ** \n\n";
-                std::cout<<"NOTA: per ritornare al menu' struttura occorre essere sulla Root dell' albero. \n\n";
-                floatTreePQueueNavigation(&Pqueue);
+                std::cout<<"NOTA: Le funzioni 'tip' sono disponibili solo sulla root dell' albero. \n\n";
+                TreePQueueNavigation(&Pqueue);
                 break;
             case 'b':
                 return;
@@ -659,8 +659,8 @@ void BinaryTreePQueueString(){
                 break;
             case '7':
                 std::cout << "\n\n ** NAVIGAZIONE TRA I NODI ** \n\n";
-                std::cout<<"NOTA: per ritornare al menu' struttura occorre essere sulla Root dell' albero. \n\n";
-                stringTreePQueueNavigation(&Pqueue);
+                std::cout<<"NOTA: Le funzioni 'tip' sono disponibili solo sulla root dell' albero. \n\n";
+                TreePQueueNavigation(&Pqueue);
                 break;
             case 'b':
                 return;
