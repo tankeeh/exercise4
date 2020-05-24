@@ -32,7 +32,7 @@ void intRecursivePQueueNavigate(lasd::PriorityQueue<Data>* Pqueue,typename lasd:
                 if(node->HasLeftChild()) {
                     std::cout<<"Mi sposto sul nodo sinistro...";
                     intRecursivePQueueNavigate(Pqueue,&node->LeftChild());
-                }else std::cout<<"Tale nodo non ha un figlio sinistro.";
+                }else std::clog<<"Tale nodo non ha un figlio sinistro. \n\n";
 
                 break;
             case '2':
@@ -40,13 +40,13 @@ void intRecursivePQueueNavigate(lasd::PriorityQueue<Data>* Pqueue,typename lasd:
                     std::cout<<"Mi sposto sul nodo destro...";
                     intRecursivePQueueNavigate(Pqueue,&node->RightChild());
                 }
-                else std::cout<<"Tale nodo non ha un figlio destro.";
+                else std::clog<<"Tale nodo non ha un figlio destro. \n\n";
                 break;
             case 'r':
                 if(node->HasParent()) {
                     std::cout << "Mi sposto sul nodo padre...";
                     return;
-                }else std::cout<<"Tale nodo non ha un nodo padre.";
+                }else std::clog<<"Tale nodo non ha un nodo padre. \n\n";
                 break;
             case '3':
                 int item;
@@ -141,18 +141,18 @@ void floatRecursivePQueueNavigate(lasd::PriorityQueue<Data>* Pqueue,typename las
                     std::cout<<"Mi sposto sul nodo sinistro...";
                     floatRecursivePQueueNavigate(Pqueue,&node->LeftChild());
                 }
-                else std::cout<<"Tale nodo non ha un figlio sinistro.";
+                else std::clog<<"Tale nodo non ha un figlio sinistro. \n\n";
             case '2':
                 if(node->HasRightChild()){
                     std::cout<<"Mi sposto sul nodo destro...";
                     floatRecursivePQueueNavigate(Pqueue,&node->RightChild());
                 }
-                else std::cout<<"Tale nodo non ha un figlio destro.";
+                else std::clog<<"Tale nodo non ha un figlio destro. \n\n";
             case 'r':
                 if(node->HasParent()) {
                     std::cout << "Mi sposto sul nodo padre...";
                     return;
-                }else std::cout<<"Tale nodo non ha un nodo padre.";
+                }else std::clog<<"Tale nodo non ha un nodo padre. \n\n";
                 break;
             case '3':
                 float item;
@@ -245,18 +245,18 @@ void stringRecursivePQueueNavigate(lasd::PriorityQueue<Data>* Pqueue,typename la
                     std::cout<<"Mi sposto sul nodo sinistro...";
                     stringRecursivePQueueNavigate(Pqueue,&node->LeftChild());
                 }
-                else std::cout<<"Tale nodo non ha un figlio sinistro.";
+                else std::clog<<"Tale nodo non ha un figlio sinistro. \n\n";
             case '2':
                 if(node->HasRightChild()){
                     std::cout<<"Mi sposto sul nodo destro...";
                     stringRecursivePQueueNavigate(Pqueue,&node->RightChild());
                 }
-                else std::cout<<"Tale nodo non ha un figlio destro.";
+                else std::clog<<"Tale nodo non ha un figlio destro. \n\n";
             case 'r':
                 if (node->HasParent()) {
                     std::cout << "Mi sposto sul nodo padre...";
                     return;
-                } else std::cout << "Tale nodo non ha un nodo padre.";
+                } else std::clog << "Tale nodo non ha un nodo padre. \n\n";
                 break;
             case '3': {
                 std::string item;

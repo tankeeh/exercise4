@@ -48,7 +48,7 @@ void PriorityQueue<Data>::RemoveTip() {
         this->tree[this->size-1] = nullptr;
         this->size--;
         Heapify(*this,0,this->size);
-        if(this->Size() < this->tree.Size()/2 && this->tree.Size()/2 >3) this->Reduce();
+        if(this->Size() < this->tree.Size()/2 && this->tree.Size()/2 >= 3) this->tree.Resize(this->tree.Size()/2);
     }
     else throw std::length_error("non ci sono elementi nello Heap.");
 }

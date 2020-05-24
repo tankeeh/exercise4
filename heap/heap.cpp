@@ -53,7 +53,9 @@ Heap<Data>::Heap(Heap&& heap2):BinaryTreeVec<Data>(std::move(heap2)){}
 
 template <typename Data>
 void Heap<Data>::BuildHeap(){
-    for(int i=(this->size-1)/2;i >= 0;i--) Heapify(*this,i,this->size);
+    if(!(this->Empty())) {
+        for(int i=(this->size-1)/2;i >= 0;i--) Heapify(*this,i,this->size);
+    }
 }
 
 template <typename Data>
